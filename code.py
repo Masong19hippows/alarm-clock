@@ -1,19 +1,19 @@
-from machine import Pin, I2C
-from ssd1306 import SSD1306_I2C
-
-i2c=I2C(0,sda=Pin(0), scl=Pin(1), freq=400000)
-oled = SSD1306_I2C(128, 64, i2c)
-
-oled.text("Tom's Hardware", 0, 0)
-oled.show()
+import time
+import board
+import busio
 
 
-def showDigit():
+i2c = board.I2C()
+while not i2c.try_lock():
+    pass
 
-    print("digit")
+try:
+    while True:
+        print(
+            "I2C addresses found:",
+            [hex(device_address) for device_address in i2c.scan()],
+        )
+        time.sleep(2)
 
-
-
-def showColor():
-
-    print("color")
+finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
+    i2c.unlock()
