@@ -6,3 +6,14 @@ oled = SSD1306_I2C(128, 64, i2c)
 
 oled.text("Tom's Hardware", 0, 0)
 oled.show()
+
+
+def showDigit():
+
+    print("digit")
+
+
+
+def showColor():
+
+    print("color")
