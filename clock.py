@@ -7,6 +7,7 @@ i2c_rtc = I2C(1,scl = Pin(7),sda = Pin(6),freq = 100000)
 rtc = DS3231(i2c_rtc, address=0x68)
 utime.sleep_ms(100)
 
+
 def updateTime():
 
     hour = rtc.datetime().hour
