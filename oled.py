@@ -13,11 +13,5 @@ def writeDigit(number):
             oled.pixel(x*scale + 38, y*scale + 4 , c)
     oled.show()
 
-
-def fillOled():
-
-    oled.fill(1)  # Fill the entire oled with 1="on"
-    oled.show()
-
 def invert():
     oled.invert(1)
