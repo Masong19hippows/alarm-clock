@@ -44,7 +44,6 @@ try:
                             oled.invert(0)
                         count += 1
                         utime.sleep_ms(25)
-                        print("0 button pressed")
 
                         try:
                             if buttons.get()[1] == 3:
