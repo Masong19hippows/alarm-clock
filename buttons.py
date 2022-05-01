@@ -1,6 +1,5 @@
 import machine
 import utime
-import buzzer
 
 button0 = machine.Pin(21, machine.Pin.IN, machine.Pin.PULL_UP)
 button1 = machine.Pin(20, machine.Pin.IN, machine.Pin.PULL_UP)

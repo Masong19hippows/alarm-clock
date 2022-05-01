@@ -1,11 +1,11 @@
 from machine import I2C, Pin
 from urtc import DS3231
 import utime
-import oled
+from oled import i2c1
 import settings
 import _thread
 
-rtc = DS3231(oled.i2c1, address=0x68)
+rtc = DS3231(i2c1, address=0x68)
 utime.sleep_ms(100)
 
 

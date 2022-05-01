@@ -29,18 +29,18 @@ class change():
 
                 if not buttons.getOnly():
                     continue
-
-                while buttons.getOnly()[0] != 1:
-                    try:
+                try:
+                    while buttons.getOnly()[0] != 1:
+                    
                         while buttons.get()[0] == 0:
                             while buttons.get()[1] == 1:
                                 raise
                             else:
                                 continue
 
-                    except IndexError:
-                        continue
+                except IndexError:
                     continue
+
                 else:
                     count += 1
                     if count % 2 != 0:
