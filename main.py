@@ -29,6 +29,7 @@ try:
                 t = clock.getTime(True)
                 print("alarm checks are", t, "and", settings.alarm)
                 if alarm.check(t):
+                    settings.alarm = None
                     print("alarm check triggered")
                     for i in range(len(t)):
                         oled.writeDigit(number = t[i], oled = i)
@@ -51,7 +52,10 @@ try:
                                 oled.invert(0)
                                 print("changing time")
                                 clock.updateTime(settings.change.t())
-                                print("done changing time")        
+                                print("done changing time")
+                                time = clock.getTime()
+                                for i in range(len(time)):
+                                    oled.writeDigit(number = time[i], oled = i)
                                 break
 
                             elif buttons.get()[1] == 2:
@@ -60,6 +64,9 @@ try:
                                 print("changing alarm")
                                 settings.change.a()
                                 print("done changing alarm")
+                                time = clock.getTime()
+                                for i in range(len(time)):
+                                    oled.writeDigit(number = time[i], oled = i)
                                 break          
                             elif buttons.get()[1] ==  1:
                                 count = 0
@@ -67,7 +74,9 @@ try:
                                 print("changing military")
                                 settings.change.m()
                                 print("done changing military")
-                               
+                                time = clock.getTime()
+                                for i in range(len(time)):
+                                    oled.writeDigit(number = time[i], oled = i)
                                 break
 
                         except IndexError:
