@@ -31,7 +31,7 @@ def writeDigit(number, oled):
     pos = 0
     if oled == 1 or oled == 3:
         pos = 74
-    
+    count = 0
     for y, row in enumerate(digits.digit(number)):
         for x, c in enumerate(row):
             display.pixel(x*scale + pos, y*scale + 4 , c)
@@ -51,10 +51,8 @@ def invert(oled):
                 display.pixel(x + pos, y, 0)
     display.show()
 
-def show(list):
+def simonShow(list):
     for i in list:
         invert(i)
         utime.sleep_ms(1000)
         invert(i)
-
-

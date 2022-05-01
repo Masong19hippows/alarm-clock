@@ -1,36 +1,40 @@
 from machine import I2C, Pin
 from urtc import DS3231
-from ssd1306 import SSD1306_I2C
 import utime
 import oled
+import settings
+import _thread
 
-# i2c_rtc = I2C(1,scl = Pin(7),sda = Pin(6),freq = 100000)
 rtc = DS3231(oled.i2c1, address=0x68)
 utime.sleep_ms(100)
 
 
-def updateTime():
-    year = int(input("Year : "))
-    month = int(input("month (Jan --> 1 , Dec --> 12): "))
-    date = int(input("date : "))
-    day = int(input("day (1 --> monday , 2 --> Tuesday ... 0 --> Sunday): "))
-    hour = int(input("hour (24 Hour format): "))
-    minute = int(input("minute : "))
-    second = int(input("second : "))
-    now = (year,month,date,day,hour,minute,second,0)
+def updateTime(list):
+    if list is None:
+        return
+    now = (2022,4,29,5,int(str(list[0]) + str(list[1])),int(str(list[2]) + str(list[3])),0,0)
+    print("updating time with", now)
     rtc.datetime(now)
 
-def getTime():
+def getTime(alarm = False):
+
     list = []
-    hour = "{:02d}".format(rtc.datetime().hour)
+    hour = rtc.datetime().hour
+
+    if alarm == False:
+        if settings.military == False:
+            if hour == 0:
+                hour = 12
+            elif hour == 12:
+                hour = 12
+            elif hour > 12:
+                hour %= 12
+
+    hour = "{:02d}".format(hour)
     minute = "{:02d}".format(rtc.datetime().minute)
+
     for i in str(hour):
         list.append(int(i))
     for i in str(minute):
         list.append(int(i))
     return list
-
-t = getTime()
-print(t)
-for i in range(len(t)):
-    oled.writeDigit(t[i], i)
