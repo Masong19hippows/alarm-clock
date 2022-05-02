@@ -31,8 +31,9 @@ try:
                 if alarm.check(t):
                     settings.alarm = None
                     print("alarm check triggered")
-                    for i in range(len(t)):
-                        oled.writeDigit(number = t[i], oled = i)
+                    tn = clock.getTime()
+                    for i in range(len(tn)):
+                        oled.writeDigit(number = tn[i], oled = i)
                     print("exception")
                     utime.sleep_ms(1000)
                     raise
@@ -86,7 +87,7 @@ try:
                         oled.invert(0)
                     
                     print("no buttons pressed")
-                utime.sleep_ms(2500)
+                utime.sleep_ms(1500)
         except Exception as e:
             print(e)
 
