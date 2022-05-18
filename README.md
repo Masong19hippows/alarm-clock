@@ -10,7 +10,7 @@ The install was made for a raspberry pi pico. You just need to upload the entire
 
 ## Buttons
 
-Here is a list of what the buttons did in order. To activate these buttons, the first button needs to be held untill the first part like shown in the picture below. After that, you just need to tap the button that correlates with what setting you want to change.
+Here is a list of what the buttons do in order. To activate these buttons, the first button needs to be held untill the first part like shown in the picture below. After that, you just need to tap the button that correlates with what setting you want to change.
 
 ### Button 1
 
