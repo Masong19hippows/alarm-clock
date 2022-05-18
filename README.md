@@ -1,8 +1,9 @@
 # alarm-clock
 Alarm clock that plays simon says when it triggers
 
+![Looks like this](img/clock.jpg?raw=true "Clock")
 
-This was a project for a friend. We used two oled display to display time. We also had buttons to change settings and to play simon says. The time is save din an rtc and we used a buzzer for an alarm like sound. This was made in a way that could easily be expandable. In the future, I plan to add more buttons, more ringtones for the alarm, and more displays for a more customizable look.
+This was a project for a friend. We used two oled display to display time. We also had buttons to change settings and to play simon says. The time is saved in an rtc and we used a buzzer for an alarm like sound. This was made in a way that could easily be expandable. In the future, I plan to add more buttons, more ringtones for the alarm, and more displays for a more customizable look.
 
 ## Install
 
